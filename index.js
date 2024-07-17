@@ -36,12 +36,61 @@ app.get("/card", async (req, res) => {
     }
 })
 
-
-
-
-app.get("/login", async (req, res) => {
+app.get("/card", async (req, res) => {
     try {
-        let data = await fetch("http://ec2-3-83-254-115.compute-1.amazonaws.com:8020/api/v1/login/", {
+        let data = await fetch("http://ec2-3-83-254-115.compute-1.amazonaws.com:8020/api/v1/sample_assignment_api_1/", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                "Authorization": "Basic " + btoa("trial:assignment123")
+            }
+        })
+        data = await data.json();
+        return res.json(data)
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
+
+app.get("/score", async (req, res) => {
+    try {
+        let data = await fetch("http://ec2-3-83-254-115.compute-1.amazonaws.com:8020/api/v1/sample_assignment_api_3/", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                "Authorization": "Basic " + btoa("trial:assignment123")
+            }
+        })
+        data = await data.json();
+        return res.json(data)
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
+
+app.get("/feedback", async (req, res) => {
+    try {
+        let data = await fetch("http://ec2-3-83-254-115.compute-1.amazonaws.com:8020/api/v1/sample_assignment_api_5/", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                "Authorization": "Basic " + btoa("trial:assignment123")
+            }
+        })
+        data = await data.json();
+        return res.json(data)
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
+
+
+app.get("/linechart", async (req, res) => {
+    try {
+        let data = await fetch("http://ec2-3-83-254-115.compute-1.amazonaws.com:8020/api/v1/sample_assignment_api_4/", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
