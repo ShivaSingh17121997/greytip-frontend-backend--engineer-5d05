@@ -17,7 +17,7 @@ app.use(cors());
 
 const auth = require("./Routes/auth.routes");
 const { default: axios } = require("axios");
-app.use("/authentication", auth);
+// app.use("/authentication", auth);
 
 
 app.get("/card", async (req, res) => {
