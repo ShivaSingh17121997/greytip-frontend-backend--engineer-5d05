@@ -20,14 +20,21 @@ const { default: axios } = require("axios");
 // app.use("/authentication", auth);
 
 
-app.get("/card", async (req, res) => {
+app.post("/login", async (req, res) => {
     try {
         let data = await fetch("http://ec2-3-83-254-115.compute-1.amazonaws.com:8020/api/v1/sample_assignment_api_1/", {
-            method: "GET",
+            method: "POST",
             headers: {
                 "content-type": "application/json",
                 "Authorization": "Basic " + btoa("trial:assignment123")
-            }
+            },
+            body: JSON.stringify({
+                "username": "trial",
+                "email": "string",
+                "password": "assignment",
+                "phone_number": "string",
+                "input_code": 0
+            })
         })
         data = await data.json();
         return res.json(data)
